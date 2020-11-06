@@ -2,7 +2,7 @@
 
 Compile with
 
- nim c tix
+```nim c tix```
 
 The window is 1200x300 pixels and not resizable.
 
