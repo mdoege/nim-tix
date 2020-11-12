@@ -35,6 +35,7 @@ while runGame:
       runGame = false
       break
   if s == last:
+    delay(100)
     continue
   else:
     last = s
@@ -73,7 +74,7 @@ while runGame:
     render.fillRect(r)
 
   render.present
-  sleep(100)
+  delay(100)
 
 destroy render
 destroy window
