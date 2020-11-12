@@ -2,6 +2,8 @@
 
 import sdl2, random, times, os
 
+let update_interval = 4   # update interval in seconds
+
 discard sdl2.init(INIT_EVERYTHING)
 
 var
@@ -21,13 +23,22 @@ var
   a3 = [0, 1, 2]
   a6 = [0, 1, 2, 3, 4, 5]
   a9 = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+  last = -1
 
 while runGame:
-  var d = now().format("hhmm")
+  let
+    n = now()
+    d = n.format("hhmm")
+    s = n.second div update_interval
   while pollEvent(evt):
     if evt.kind == QuitEvent:
       runGame = false
       break
+  if s == last:
+    continue
+  else:
+    last = s
+
   render.setDrawColor 0, 0, 0, 255
   render.clear
   r.w = 80
@@ -62,7 +73,7 @@ while runGame:
     render.fillRect(r)
 
   render.present
-  sleep(4000)
+  sleep(100)
 
 destroy render
 destroy window
