@@ -1,6 +1,6 @@
 ## A TIX clock in Nim using SDL2
 
-import sdl2, random, times, os
+import sdl2, random, times
 
 let update_interval = 4   # update interval in seconds
 
