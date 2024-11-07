@@ -35,7 +35,6 @@ while runGame:
       runGame = false
       break
   if s == last:
-    render.present
     delay(100)
     continue
   else:
